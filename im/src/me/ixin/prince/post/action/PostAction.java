@@ -12,6 +12,7 @@ import org.nutz.mvc.annotation.Ok;
 
 @Modules(scanPackage = true)
 public class PostAction {
+	
 	@At("/post/?")
 	@GET
 	@Ok("jsp:pages.post")
@@ -20,16 +21,20 @@ public class PostAction {
 		return "is a msg";
 	}
 	
-	@At("/profile")
+	@At("/index")
 	@GET
-	@Ok("jsp:pages.profile")
+	@Ok("jsp:pages.index")
 	public List<Map<String, String>> showList(){
 		List<Map<String, String>> l = new ArrayList<Map<String, String>>();
 		Map<String, String> m1 = new HashMap<String, String>();
+		m1.put("id", "25");
+		m1.put("name", "web.xml 中的映射 - url-pattern");
 		m1.put("own", "小辛");
 		m1.put("time", "2012-02-20");
 		m1.put("content", "D - 渲染: 根据入口函数的返回，渲染 HTTP Response。D - 渲染: 根据入口函数的返回，渲染 HTTP Response。D - 渲染: 根据入口函数的返回，渲染 HTTP Response。");
 		Map<String, String> m2 = new HashMap<String, String>();
+		m2.put("id", "27");
+		m2.put("name", "在 Nutz.Mvc 中的映射");
 		m2.put("own", "小王");
 		m2.put("time", "2013-04-03");
 		m2.put("content", "大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。");

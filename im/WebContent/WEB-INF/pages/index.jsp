@@ -59,7 +59,7 @@
 					<c:forEach var="post" items="${obj}">
 						<article>
 							<header>
-								<h1>URL 映射</h1>
+								<h1><a href='post/${post.id}' >${post.name}</a></h1>
 								<p>作者：${post.own}&nbsp;&nbsp;<time datetime="${post.time}">${post.time}</time>
 							</header>
 							<p>${post.content}</p>

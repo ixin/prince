@@ -1,0 +1,14 @@
+{
+	dataSource : {
+		type : "org.apache.commons.dbcp.BasicDataSource",
+		events : {
+			depose : 'close'
+		},
+		fields : {
+			driverClassName : 'com.mysql.jdbc.Driver',
+			url : 'jdbc:mysql://localhost:3306/prince',
+			username : 'root',
+			password : 'root'
+		}
+	}
+}
