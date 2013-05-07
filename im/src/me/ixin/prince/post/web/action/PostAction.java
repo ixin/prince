@@ -1,4 +1,4 @@
-package me.ixin.prince.post.action;
+package me.ixin.prince.post.web.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;

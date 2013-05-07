@@ -1,6 +1,11 @@
 package me.ixin.prince.post.dao;
 
+import java.util.List;
+
+import org.nutz.dao.QueryResult;
+
 import me.ixin.prince.post.model.Post;
+import me.ixin.prince.post.web.command.PostCommand;
 
 public interface PostDao {
 	/**
@@ -27,4 +32,12 @@ public interface PostDao {
 	 * @return
 	 */
 	public Post findPostByID(Long id);
+	/**
+	 * 分页 取post
+	 * @param command
+	 * @param pageNumber
+	 * @param pageSize
+	 * @return
+	 */
+	public QueryResult getPosts(PostCommand command, int pageNumber, int pageSize);
 }

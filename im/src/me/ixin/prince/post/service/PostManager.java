@@ -1,6 +1,9 @@
 package me.ixin.prince.post.service;
 
+import org.nutz.dao.QueryResult;
+
 import me.ixin.prince.post.model.Post;
+import me.ixin.prince.post.web.command.PostCommand;
 
 public interface PostManager {
 	/**
@@ -27,4 +30,12 @@ public interface PostManager {
 	 * @return
 	 */
 	public Post findPostByID(Long id);
+	/**
+	 * 分页 取post
+	 * @param command
+	 * @param pageNumber
+	 * @param pageSize
+	 * @return
+	 */
+	public QueryResult getPosts(PostCommand command, int pageNumber, int pageSize);
 }
