@@ -5,20 +5,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import me.ixin.prince.post.model.Post;
+import me.ixin.prince.post.service.PostManager;
+
+import org.nutz.ioc.annotation.InjectName;
+import org.nutz.ioc.loader.annotation.Inject;
+import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.GET;
-import org.nutz.mvc.annotation.Modules;
 import org.nutz.mvc.annotation.Ok;
 
-@Modules(scanPackage = true)
+@InjectName("postAction")
+@IocBean
 public class PostAction {
+
+	@Inject("refer:postMgr")
+	private PostManager postMgr ;
 	
 	@At("/post/?")
 	@GET
 	@Ok("jsp:pages.post")
 	public String showOBJ(int postId){
 		//System.out.println(postId);
-		return "is a msg";
+		Post p = postMgr.findPostByID(Long.valueOf(1));
+		
+		return "is a msg:" + p.getContent();
 	}
 	
 	@At("/index")
