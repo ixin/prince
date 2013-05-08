@@ -1,7 +1,5 @@
 package me.ixin.prince.post.dao;
 
-import java.util.List;
-
 import org.nutz.dao.QueryResult;
 
 import me.ixin.prince.post.model.Post;
