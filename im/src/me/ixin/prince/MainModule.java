@@ -1,7 +1,9 @@
 package me.ixin.prince;
 
+import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.IocBy;
 import org.nutz.mvc.annotation.Modules;
+import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.ioc.provider.ComboIocProvider;
 
 @Modules(scanPackage = true)
@@ -12,5 +14,7 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 												"me.ixin.prince.post.service.impl",
 												"me.ixin.prince.post.web.action"})
 public class MainModule {
-	
+	/*@At("/")
+	@Ok("forward:/index")
+	public void goHomePage(){}*/
 }

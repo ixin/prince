@@ -1,13 +1,13 @@
 package me.ixin.prince.post.web.action;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import me.ixin.prince.post.model.Post;
 import me.ixin.prince.post.service.PostManager;
+import me.ixin.prince.post.web.command.PostCommand;
 
+import org.nutz.dao.QueryResult;
+import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.annotation.InjectName;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
@@ -32,11 +32,23 @@ public class PostAction {
 		return "is a msg:" + p.getContent();
 	}
 	
-	@At("/index")
+	@At("/")
 	@GET
 	@Ok("jsp:pages.index")
-	public List<Map<String, String>> showList(){
-		List<Map<String, String>> l = new ArrayList<Map<String, String>>();
+	public Object showList(){
+		
+		PostCommand command = new PostCommand();
+		int pageNumber = 1;
+		int pageSize = 5;
+		
+		QueryResult qr = postMgr.getPosts(command, pageNumber, pageSize);
+		
+		List<Post> pl = qr.getList(Post.class);
+		System.out.println(pl);
+		Pager p = qr.getPager();
+		System.out.println(p);
+		
+		/*List<Map<String, String>> l = new ArrayList<Map<String, String>>();
 		Map<String, String> m1 = new HashMap<String, String>();
 		m1.put("id", "25");
 		m1.put("name", "web.xml 中的映射 - url-pattern");
@@ -51,6 +63,7 @@ public class PostAction {
 		m2.put("content", "大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。大家遇到迷惑了吗？遇到了就对了，说明 再走下去就会成功了。");
 		l.add(m1);
 		l.add(m2);
-		return l;
+		return l;*/
+		return qr;
 	}
 }

@@ -28,7 +28,7 @@ public class Post {
 	private Integer readNumber;
 	@Column
 	private Integer status;//0 代表发布    1代表草稿	2代表垃圾箱	3代表已删除
-	
+	@Column
 	@Readonly
 	private String createByName;
 	
@@ -79,6 +79,12 @@ public class Post {
 	}
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+	public String getCreateByName() {
+		return createByName;
+	}
+	public void setCreateByName(String createByName) {
+		this.createByName = createByName;
 	}
 	
 }

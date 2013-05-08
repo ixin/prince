@@ -56,14 +56,15 @@
 		<div class="container-fluid">
 				<div class="row-fluid">
 					<section class="span8">
-					<c:forEach var="post" items="${obj}">
+					<c:forEach var="post" items="${obj.list}">
 						<article>
 							<header>
 								<h1><a href='post/${post.id}' >${post.name}</a></h1>
-								<p>作者：${post.own}&nbsp;&nbsp;<time datetime="${post.time}">${post.time}</time>
+								<p>作者：${post.createByName} &nbsp;&nbsp;<time datetime="${post.createOn}">${post.createOn}</time>
 							</header>
 							<p>${post.content}</p>
 						</article>
+						<hr />
 					</c:forEach>
 						
 						<%-- <c:forEach var="post" items="${posts}">
@@ -78,8 +79,8 @@
 						</c:forEach> --%>
 						<hr />
 						<ul class="pager">
-							<li class="previous"><a href="#">&larr; Older</a></li>
-							<li class="next"><a href="#">Newer &rarr;</a></li>
+							<li class="previous"><a href="p/">&larr; Older</a></li>
+							<li class="next"><a href="p/">Newer &rarr;</a></li>
 						</ul>
 					</section>
 					<aside class="span4">
